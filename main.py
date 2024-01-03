@@ -1,5 +1,6 @@
 import pygame
 import os
+import sys
 
 
 class Board:
@@ -24,14 +25,16 @@ class Board:
         
         for y in range(self.height):
             for x in range(self.width):
-                pygame.draw.rect(screen, colors[self.board[y][x]], (
+                pygame.draw.rect(screen, pygame.Color(255, 165, 0), (
                     x * self.cell_size + self.left, y * self.cell_size + self.top, self.cell_size,
                     self.cell_size))
-                pygame.draw.rect(screen, pygame.Color("white"), (
+                pygame.draw.rect(screen, colors[self.board[y][x]], (
                 x * self.cell_size + self.left, y * self.cell_size + self.top, self.cell_size,
                 self.cell_size), 1)
 
-pygame.init()
+
+
+
 size = width, height = 1200, 800
 screen = pygame.display.set_mode(size)
 board = Board(10, 5)
